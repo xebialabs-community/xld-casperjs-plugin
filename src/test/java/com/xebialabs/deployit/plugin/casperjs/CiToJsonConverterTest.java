@@ -75,7 +75,7 @@ public class CiToJsonConverterTest {
 
         assertThat(jsonObject.getString("id"), equalTo("Dummy/Configuration/Item/id"));
         assertThat(jsonObject.getString("name"), equalTo("id"));
-        assertThat(jsonObject.getString("type"), equalTo("casperjs.DummyConfigurationItem"));
+        assertThat(jsonObject.getString("type"), equalTo("phantomjs.DummyConfigurationItem"));
         assertThat(jsonObject.getString("defined"), equalTo("definedValue"));
         assertThat(jsonObject.getBoolean("boolField"), equalTo(true));
         assertThat(jsonObject.getInt("intField"), equalTo(42));
