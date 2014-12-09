@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<synthetic xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+
+    <type type="casperjs.Runtime" extends="generic.Container">
+        <property name="executable"
+                  description="Relative path to the OS specific executable for PhantomJS. Examples, for windows 'win/phantomjs.exe', for osx 'osx/phantomjs', for linux 64-bit 'linux_64/phantomjs', for linux 32-bit 'linux_32/phantomjs'. Place your custom compiled executable in &lt;server_home&gt;/ext/phantomjs/runtime" />
+    </type>
+
+    <type type="casperjs.BaseExecutedScript" extends="generic.ExecutedScript" virtual="true" container-type="casperjs.Runtime">
+        <!-- public -->
+        <property name="isCasperJSTest" label="Is CasperJS Test" kind="boolean" required="false" default="false"/>
+
+        <!-- hidden -->
+        <property name="classpathResources" kind="set_of_string" hidden="true"
+                  default="phantomjs/runtime/${deployed.container.executable},phantomjs/runtime/casperjs"/>
+        <property name="templateClasspathResources" kind="set_of_string" hidden="true"
+                  default="phantomjs/runtime/deployed.js,phantomjs/runtime/casperbootstrap.js,phantomjs/runtime/inlinescript.js,phantomjs/runtime/phantomconfig.json"/>
+        <property name="createScript" hidden="true" default="phantomjs/runtime/run-casperjs"/>
+        <property name="createVerb" hidden="true" default="Execute"/>
+        <property name="createOrder" kind="integer" hidden="true" default="100"/>
+        <property name="modifyScript" hidden="true" default="phantomjs/runtime/run-casperjs"/>
+        <property name="modifyVerb" hidden="true" default="Execute"/>
+        <property name="modifyOrder" kind="integer" hidden="true" default="100"/>
+        <property name="noopScript" hidden="true" default="phantomjs/runtime/run-casperjs"/>
+        <property name="noopVerb" hidden="true" default="Execute"/>
+        <property name="noopOrder" kind="integer" hidden="true" default="100"/>
+    </type>
+
+
+    <type type="casperjs.InlineScript" extends="casperjs.BaseExecutedScript" deployable-type="casperjs.InlineScriptSpec">
+        <generate-deployable type="casperjs.InlineScriptSpec" extends="generic.Resource"/>
+        <!-- public -->
+        <property name="script" size="large"/>
+    </type>
+
+    <type type="casperjs.ScriptModule" extends="casperjs.BaseExecutedScript" deployable-type="casperjs.Script">
+        <generate-deployable type="casperjs.Script" extends="generic.File"/>
+    </type>
+
+</synthetic>
