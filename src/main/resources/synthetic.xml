@@ -17,6 +17,7 @@
     <type type="casperjs.BaseExecutedScript" extends="generic.ExecutedScript" virtual="true" container-type="casperjs.Runtime">
         <!-- public -->
         <property name="isCasperJSTest" label="Is CasperJS Test" kind="boolean" required="false" default="false"/>
+        <property name="debug" label="Is CasperJS Test" kind="boolean" required="false" default="false"/>
 
         <!-- hidden -->
         <property name="classpathResources" kind="set_of_string" hidden="true"

@@ -12,7 +12,7 @@ import com.google.common.io.Files;
 
 import com.xebialabs.deployit.plugin.api.udm.ConfigurationItem;
 import com.xebialabs.deployit.plugin.api.udm.base.BaseDeployableFileArtifact;
-import com.xebialabs.deployit.plugin.generic.deployed.AbstractDeployedArtifact;
+import com.xebialabs.deployit.plugin.generic.deployed.AbstractDeployed;
 import com.xebialabs.overthere.RuntimeIOException;
 import com.xebialabs.overthere.local.LocalFile;
 
@@ -26,7 +26,8 @@ public class CasperJsFreemarkerHelper {
     }
 
     public List<String> readScriptLines(BeanModel deployedBeanModel) {
-        AbstractDeployedArtifact<?> deployedArtifact = (AbstractDeployedArtifact<?>) deployedBeanModel.getWrappedObject();
+        final Object wrappedObject = deployedBeanModel.getWrappedObject();
+        AbstractDeployed<?> deployedArtifact = (AbstractDeployed<?>) wrappedObject;
         BaseDeployableFileArtifact deployable = (BaseDeployableFileArtifact) deployedArtifact.getDeployable();
         LocalFile file = (LocalFile) deployable.getFile();
         try {
