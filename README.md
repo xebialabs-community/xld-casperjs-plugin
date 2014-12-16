@@ -3,6 +3,7 @@
 # Overview #
 
 Plugin supports the execution of native PhantomJS or CasperJS scripts. This plugin can be useful in the writing functional tests suites of a website or simple integrations via a web interface.
+It embebs CasperJs 1.1.1b3
 
 # Requirements #
 
