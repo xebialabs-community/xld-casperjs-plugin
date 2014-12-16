@@ -7,7 +7,7 @@
 -->
 cp ./phantomjs ./phantomjsrunner
 chmod +x ./phantomjsrunner
-./phantomjsrunner --config=phantomconfig.json casperbootstrap.js <#if deployed.isCasperJSTest>--cli test inlinescript.js</#if>
+./phantomjsrunner --config=phantomconfig.json casperbootstrap.js <#if deployed.isCasperJSTest>--cli test inlinescript.js --no-colors </#if>
 res=$?
 if [ $res != 0 ] ; then
 exit $res
