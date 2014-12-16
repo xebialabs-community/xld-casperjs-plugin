@@ -5,8 +5,9 @@
     FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 
 -->
-chmod +x ./phantomjs
-./phantomjs --debug=${deployed.debug} --config=phantomconfig.json casperbootstrap.js <#if deployed.isCasperJSTest>--cli test inlinescript.js</#if>
+cp ./phantomjs ./phantomjsrunner
+chmod +x ./phantomjsrunner
+./phantomjsrunner --config=phantomconfig.json casperbootstrap.js <#if deployed.isCasperJSTest>--cli test inlinescript.js</#if>
 res=$?
 if [ $res != 0 ] ; then
 exit $res
