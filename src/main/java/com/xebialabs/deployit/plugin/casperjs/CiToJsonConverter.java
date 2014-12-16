@@ -23,7 +23,7 @@ import static com.google.common.collect.Sets.newHashSet;
 public class CiToJsonConverter {
 
     public CiToJsonConverter() {
-  }
+    }
 
     public String toJson(ConfigurationItem ci) {
         if (ci == null) {
@@ -40,7 +40,7 @@ public class CiToJsonConverter {
     private JSONObject convertToJson(ConfigurationItem ci, Set<String> reference) throws JSONException {
 
         if (ci == null) {
-           return null;
+            return null;
         }
 
         JSONObject jsonObject = new JSONObject();
@@ -65,7 +65,7 @@ public class CiToJsonConverter {
                 case SET_OF_CI:
                     if (pd.get(ci) != null) {
                         List<JSONObject> jsonObjectCis = newArrayList();
-                        for (ConfigurationItem item : (Collection<ConfigurationItem>)pd.get(ci)) {
+                        for (ConfigurationItem item : (Collection<ConfigurationItem>) pd.get(ci)) {
                             jsonObjectCis.add(convertToJson(item, reference));
                         }
                         jsonObject.put(pd.getName(), jsonObjectCis);
@@ -76,7 +76,7 @@ public class CiToJsonConverter {
                 case SET_OF_STRING:
                     if (pd.get(ci) != null) {
                         JSONArray jsonArray = new JSONArray();
-                        for (String item : (Collection<String>)pd.get(ci)) {
+                        for (String item : (Collection<String>) pd.get(ci)) {
                             jsonArray.put(item);
                         }
                         jsonObject.put(pd.getName(), jsonArray);
