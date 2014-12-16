@@ -7,9 +7,10 @@ buildscript {
   }
 }
 
-version='4.5.2'
+version = '4.5.2'
 
 def apiVersion = '4.0.1'
+def xld_home = '/Users/bmoussaud/Workspace/xebialabs/poc/si2m/xl-deploy-4.5.2-server'
 
 apply plugin: "com.github.hierynomus.license"
 apply plugin: 'java'
@@ -19,30 +20,31 @@ repositories {
   mavenLocal()
   mavenCentral()
   maven {
-      credentials {
-            username 'community-plugins'
-            password 'community'
-        }
-      url 'http://nexus.xebialabs.com/nexus/content/repositories/releases'
+    credentials {
+      username 'community-plugins'
+      password 'community'
     }
+    url 'http://nexus.xebialabs.com/nexus/content/repositories/releases'
+  }
 }
 
 dependencies {
   compile "com.xebialabs.deployit:udm-plugin-api:$apiVersion"
-  compile files('/Users/bmoussaud/Workspace/xebialabs/poc/si2m/xl-deploy-4.5.2-server/lib/generic-plugin-4.5.2.jar')
+  compile files(xld_home + '/lib/generic-plugin-4.5.2.jar')
   compile 'org.codehaus.jettison:jettison:1.3.1'
   compile 'org.freemarker:freemarker:2.3.19'
   testCompile 'javax.mail:mail:1.4.4'
   testCompile 'junit:junit:4.10'
   testCompile 'org.hamcrest:hamcrest-library:1.3'
-  testCompile files('/Users/bmoussaud/Workspace/xebialabs/poc/si2m/xl-deploy-4.5.2-server/lib/local-booter-2014.7.4.jar')
-  testCompile files('/Users/bmoussaud/Workspace/xebialabs/poc/si2m/xl-deploy-4.5.2-server/lib/overthere-2.4.5.jar')
-  testCompile files('/Users/bmoussaud/Workspace/xebialabs/poc/si2m/xl-deploy-4.5.2-server/lib/remoting-plugin-4.5.2.jar')
-  testCompile files('/Users/bmoussaud/Workspace/xebialabs/poc/si2m/xl-deploy-4.5.2-server/lib/base-plugin-4.5.2.jar')
+  testCompile files(xld_home + '/lib/local-booter-2014.7.4.jar')
+  testCompile files(xld_home + '/lib/overthere-2.4.5.jar')
+  testCompile files(xld_home + '/lib/remoting-plugin-4.5.2.jar')
+  testCompile files(xld_home + '/lib/base-plugin-4.5.2.jar')
 
 }
 
 license {
-    header rootProject.file('src/main/license/xebialabs_community.license')
-    strictCheck true
+  header rootProject.file('src/main/license/xebialabs_community.license')
+  exclude "**/package.json"
+  strictCheck false
 }
