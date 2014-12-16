@@ -3,3 +3,14 @@ notifications:
   hipchat:
     rooms:
       secure: ShNT0zGSs6oCT8WJo3Soksgz/IPQf4RPIfEqWWmM5mLyfEHQf8GouIP49QKa66aWvb++BAsTxX1F+TvF+J5DbJeFdFq5aLDelnPllt81MA0jBGIZq/1Esb7XF92IbteLe93WzRC0ut6garCQ/4XgvSvAL+fw2s7JLCXSsh8KTpQ=
+
+deploy:
+  provider: releases
+  api_key:
+    secure: KcELkVagX57QgxZQsebFKVWW9JlL6RscmReg2LEnIzFV1vaNoa944d/k35E+MX20LDexA4/rcT8n8smDNhrrh6X49HQzzQaQmNBlKjFEXpSRjL3+zhiQcQymxrcmhnMh6uvQ+Y0D8PWXHhpt5G3r3ifN+Yg3MjkUoWdZ8vAg/LQ=
+  file: build/libs//xld-casperjs-plugin-1.0.jar
+  skip_cleanup: true
+  on:
+    all_branches: true
+    tags: true
+    repo: xebialabs-community/xld-casperjs-plugin
