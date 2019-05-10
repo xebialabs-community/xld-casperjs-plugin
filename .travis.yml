@@ -6,7 +6,7 @@ notifications:
 deploy:
   provider: releases
   api_key:
-    secure: JZnPC90TSx4RPc1/kv2gdyDWZvO/Vu7TrfG20Kf+cw9Pz7es140ot0rqNGDL5CHiEf77SttAcobImJwoTXx8tgHM5KERipMo0w/0q2Y4aDhy1LgBn8c6+fXGzWsQFa/ksO+pNVigwjCagymRkzoqepipt3XIvrZUqAf1JfCI1bY=
+    secure: Z2Z2vMQl0xyqEyHY4sAEaa15TlVUY4dM5Wg7ELUcVRXe+Lq3zImUYRcOTiAtJTuW7yXdDhpB8rL4OifJLBjP2BvzJTDaIBtm3nZuUOdQ/v9cJaAT3PrPF65N7+yOiHN2/iqcmmtO9FAd/bxKFh7M+dK0POBivhZv3wvECdYjeaE=
   file: build/libs//xld-casperjs-plugin-1.0.jar
   skip_cleanup: true
   on:
